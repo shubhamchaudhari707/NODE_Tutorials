@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "shubham1",
+        "email": "shubhamchaudhari1@gmail.com",
+        "address": {
+            "street": "kulas light",
+            "city": "delhi",
+            "zipcode": "95551-251-32",
+            "geo": {
+                "lat": -375,
+                "lng": "810.87"
+            }
+        },
+        "phone": 95952841055,
+        "website": "shubham.org"
+    },
+    {
+        "id": 2,
+        "name": "shubham2",
+        "email": "shubhamchaudhari2@gmail.com",
+        "address": {
+            "street": "kulas light",
+            "city": "delhi",
+            "zipcode": "95551-251-32",
+            "geo": {
+                "lat": -375,
+                "lng": "810.87"
+            }
+        },
+        "phone": 95952841055,
+        "website": "shubham.org"
+    },
+    {
+        "id": 3,
+        "name": "shubham3",
+        "email": "shubhamchaudhari3@gmail.com",
+        "address": {
+            "street": "kulas light",
+            "city": "delhi",
+            "zipcode": "95551-251-32",
+            "geo": {
+                "lat": -375,
+                "lng": "810.87"
+            }
+        },
+        "phone": 95952841055,
+        "website": "shubham.org"
+    }
+]

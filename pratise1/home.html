@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queotes</title>
+
+    <style>
+        body {
+            background-color: rgb(201, 194, 158);
+        }
+
+        #quotes {
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        #author {
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        #Qotes {
+            margin-top: 200px;
+        }
+
+        .conatiner {
+            width: 400px;
+            height: 400px;
+            background-color: blue;
+            text-align: center;
+            margin-top: 200px;
+            margin-left: 500px;
+            padding: 20px;
+            border-radius: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="conatiner">
+
+        <div id="quotes"></div>
+        <hr>
+        <div id="author"></div>
+        
+        <button id="Qotes">New Quotes</button>
+
+    </div>
+
+
+    <script>
+        const quotes = document.getElementById('quotes')
+        const author = document.getElementById('author')
+
+        const getQueotes = async () => {
+
+            const api = "https://type.fit/api/quotes"
+            try {
+
+                const data = await fetch(api)
+                let realdata = await data.json()
+                console.log(realdata)
+                const randoms = Math.floor(Math.random() * 1000)
+
+                // author.innerText = realdata[randoms].author
+                // quotes.innerText = realdata[randoms].text
+
+                // document.getElementById('quotes').innerText=realdata[randoms].text
+                // document.getElementById('author').innerText=realdata[randoms].author
+
+
+                if (realdata[randoms].author == null) {
+                    author.innerText = 'unknown author name !'
+                }
+                else {
+                    quotes.innerText = realdata[randoms].text
+                    author.innerText = realdata[randoms].author
+                }
+
+            }
+
+            catch (error) {
+                console.log(error)
+            }
+
+        }
+
+        Qotes.addEventListener("click", getQueotes);
+
+    </script>
+</body>
+
+</html>

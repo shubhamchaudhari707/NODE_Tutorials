@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="show"></h1>
+    <h1 id="show1"></h1>
+    <p id="number"></p>
+    <button id="btn">button</button>
+
+    <script>
+
+
+        // getdata = async () => {
+        //     const api = fetch('https://type.fit/api/quotes')
+        //     // console.log(api)
+        //     try{
+
+        //         const data = await api
+        //         const realdata = await data.json()
+        //         console.log(realdata[0].text)
+        //         console.log(realdata[0].author)
+
+        //     }
+        //     catch(err){
+        //         console.log(err)
+        //     }
+
+
+        // }
+
+        // getdata()
+
+
+    </script>
+
+    <script>
+
+        const apidata = () => {
+
+            fetch('https://type.fit/api/quotes').then((data) => {
+                console.log(data)
+                return data.json()
+            }).then((realdata) => {
+                console.log(realdata)
+                console.log(realdata[1].text)
+                console.log(realdata[1].author)
+
+                const random = Math.floor(Math.random() * 100)
+
+                document.getElementById('show').innerHTML = realdata[`${random}`].text
+                document.getElementById('show1').innerHTML = realdata[`${random}`].author
+                document.getElementById('number').innerHTML = random
+
+            }).catch((err) => {
+                console.log(err)
+            })
+
+        }
+
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', apidata)
+
+    </script>
+
+</body>
+
+</html>

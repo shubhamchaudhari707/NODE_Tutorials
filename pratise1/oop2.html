@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="name"></p>
+    <p id="temp"></p>
+    <p id="temp_min"></p>
+    <p id="temp_max"></p>
+
+    <script>
+
+        // fetch('http://api.openweathermap.org/data/2.5/weather?q=pune&appid=513b0237df77f277675dd0fa57f495e7').then((data) => {
+
+        //     // console.log(data)
+        //     return data.json()
+        // }).then( (realdata)=>{
+        //     console.log(realdata.name)
+        //     console.log(realdata.main.temp)
+        //     console.log(realdata.main.temp_min)
+        //     console.log(realdata.main.temp_max)
+
+        //     document.getElementById('name').innerHTML = realdata.name
+        //     document.getElementById('temp').innerHTML = realdata.main.temp
+        //     document.getElementById('temp_min').innerHTML = realdata.main.temp_min
+        //     document.getElementById('temp_max').innerHTML = realdata.main.temp_max
+
+        // } )
+
+    </script>
+
+    <script>
+
+        const apidata = async () => {
+
+            const api = fetch('http://api.openweathermap.org/data/2.5/weather?q=chalisgaon&appid=513b0237df77f277675dd0fa57f495e7')
+
+            try {
+
+                const data = await api
+                console.log(data)
+
+                const realdata = await data.json()
+                console.log(realdata)
+                console.log(realdata.name)
+                console.log(realdata.main.temp)
+                console.log(realdata.main.temp_min)
+                console.log(realdata.main.temp_max)
+
+                document.getElementById('name').innerHTML = realdata.name
+                document.getElementById('temp').innerHTML = realdata.main.temp
+                document.getElementById('temp_min').innerHTML = realdata.main.temp_min
+                document.getElementById('temp_max').innerHTML = realdata.main.temp_max
+
+            }
+            catch (err) {
+                console.log(err)
+            }
+
+        }
+
+        apidata()
+
+    </script>
+</body>
+
+</html>
